@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cracktrader Engineering — Event-driven trading runtime</title>
+    <meta name="description" content="Engineering overview of Cracktrader: an event-driven runtime for quantitative research, simulation and execution across backtest, paper, sandbox and live modes.">
+    <meta name="theme-color" content="#101715">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cracktrader Engineering">
+    <meta property="og:description" content="An event-driven runtime for quantitative research, simulation and execution.">
+    <meta property="og:url" content="https://cracktrader.github.io/">
+    <link rel="canonical" href="https://cracktrader.github.io/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Cracktrader Engineering, home">
+        <span class="brand-mark" aria-hidden="true">CT</span>
+        <span>Cracktrader <em>Engineering</em></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Private engineering project · public technical overview</p>
+          <h1>An event-driven runtime for quantitative research and execution.</h1>
+          <p class="hero-intro">
+            Cracktrader is a Python trading runtime designed around explicit contracts:
+            shared market-state snapshots, strategy-scoped views, route-aware execution,
+            central risk and inventory, and adapters that isolate backtest, paper,
+            sandbox and live behaviour.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#architecture">Explore the architecture</a>
+            <a class="button secondary" href="https://cracktrader.github.io/docs/">Technical documentation <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <aside class="availability" aria-label="Project availability">
+            <strong>Current availability</strong>
+            <p>
+              Cracktrader is private software for personal quantitative research and
+              trading. It is not currently offered as a hosted product, public package
+              or investment service. This site documents the engineering approach
+              without exposing strategies, credentials, live data or private source.
+            </p>
+          </aside>
+        </div>
+
+        <div class="runtime-graphic" aria-label="Cracktrader runtime flow from market inputs through strategy, risk, execution and reports">
+          <div class="flow-inputs"><span>Feeds</span><span>Reference data</span></div>
+          <span class="flow-line"></span>
+          <div class="flow-box core">Shared state<br><small>immutable snapshot</small></div>
+          <span class="flow-line"></span>
+          <div class="flow-box strategy">Strategy views<br><small>attributed intents</small></div>
+          <span class="flow-line"></span>
+          <div class="flow-split"><span>Risk &amp; inventory</span><span>Routes &amp; adapters</span></div>
+          <span class="flow-line"></span>
+          <div class="flow-box reports">Execution reports · post-trade · control plane</div>
+        </div>
+      </section>
+
+      <section class="principles section" id="architecture">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Architecture</p>
+            <h2>One runtime model, with mode differences kept at the edges.</h2>
+          </div>
+          <p>
+            Strategies target stable contracts. The runtime owns shared state,
+            attribution, risk and inventory; execution adapters handle what must differ
+            between deterministic simulation and real venues.
+          </p>
+        </div>
+
+        <div class="principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Session-owned state</h3>
+            <p>One session coordinates reference data, market state, strategies, routes, inventory, risk and control-plane services.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Shared snapshots</h3>
+            <p>Market inputs produce one immutable snapshot per step, then filtered strategy views preserve isolation without duplicating state.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Attributed execution</h3>
+            <p>Strategy, execution and route identities travel with intents, reports and diagnostics instead of disappearing inside broker code.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Explicit runtime edges</h3>
+            <p>Risk decisions, execution adapters, post-trade sinks and kill-switch controls remain first-class boundaries rather than strategy side effects.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="modes section" aria-labelledby="modes-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Execution modes</p>
+            <h2 id="modes-title">Stable contracts across four operating environments.</h2>
+          </div>
+        </div>
+        <div class="mode-grid">
+          <article><h3>Backtest</h3><p>Historical replay with a strong deterministic expectation for research, regression testing and reproducibility.</p></article>
+          <article><h3>Paper</h3><p>Live or replayed inputs with simulated execution for strategy shakeout without venue-side orders.</p></article>
+          <article><h3>Sandbox</h3><p>Real broker adapters against testnet or venue sandboxes for integration and pre-live validation.</p></article>
+          <article><h3>Live</h3><p>Real market input and venue execution, with operational safeguards and environment-dependent timing.</p></article>
+        </div>
+        <p class="mode-note">The strategy-facing contract remains stable; fill formation, clocks, venue capability and safety defaults are allowed to differ explicitly.</p>
+      </section>
+
+      <section class="evidence section" id="evidence">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Engineering evidence</p>
+            <h2>Designed to be reasoned about, replayed and tested.</h2>
+          </div>
+          <p>
+            The core repository is private. Public evidence therefore focuses on
+            architecture, runtime guarantees, testing responsibilities, mode
+            divergences and benchmark methodology—not claims that require access to
+            strategies or trading results.
+          </p>
+        </div>
+
+        <div class="evidence-grid">
+          <article>
+            <strong>Broad test surface</strong>
+            <p>More than 400 Python files in the test tree, spanning unit, contract, integration, end-to-end, performance and parity concerns.</p>
+          </article>
+          <article>
+            <strong>Deterministic contracts</strong>
+            <p>Explicit timestamp, snapshot, attribution and order-lifecycle guarantees protect replay and regression behaviour.</p>
+          </article>
+          <article>
+            <strong>Mode divergence ledger</strong>
+            <p>Intentional differences between backtest, paper, sandbox and live behaviour are recorded instead of silently leaking across modes.</p>
+          </article>
+          <article>
+            <strong>Performance tooling</strong>
+            <p>Benchmark and profiling infrastructure covers data processing, ordering, memory and runtime paths, with synthetic results identified as such.</p>
+          </article>
+        </div>
+
+        <div class="document-links">
+          <a href="https://cracktrader.github.io/docs/architecture/runtime_map/">
+            <span>Runtime map</span><small>Ownership and data flow</small>
+          </a>
+          <a href="https://cracktrader.github.io/docs/architecture/mode_matrix/">
+            <span>Mode matrix</span><small>Backtest through live</small>
+          </a>
+          <a href="https://cracktrader.github.io/docs/mode_divergence_ledger/">
+            <span>Divergence ledger</span><small>Intentional runtime differences</small>
+          </a>
+          <a href="https://cracktrader.github.io/docs/performance/benchmarking/">
+            <span>Benchmarking</span><small>Method and generated artefacts</small>
+          </a>
+        </div>
+      </section>
+
+      <section class="transfer section">
+        <p class="eyebrow">Beyond the domain</p>
+        <h2>The architecture is about more than trading.</h2>
+        <p>
+          Shared state, deterministic replay, attributed decisions, route-aware
+          execution and explicit safety boundaries also matter in simulation,
+          logistics, defence, industrial control, data platforms and other
+          event-driven systems. Trading is the demanding domain in which these design
+          decisions are exercised.
+        </p>
+      </section>
+
+      <section class="contact section" id="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Open to a serious conversation.</h2>
+        <p>
+          Cracktrader is not publicly available today, but I am happy to discuss its
+          architecture, related engineering work, research collaboration, licensing
+          or adjacent applications with people who have a concrete interest.
+        </p>
+        <div class="actions">
+          <a class="button light" href="mailto:lachlanjbridges@gmail.com">Email Lachlan Bridges</a>
+          <a class="button outline-light" href="https://thetailorretailored.github.io/">Developer portfolio <span aria-hidden="true">↗</span></a>
+          <a class="button outline-light" href="https://cracktrader.github.io/docs/">Technical docs <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Cracktrader Engineering · Private project, public technical overview</p>
+      <p>No analytics, trackers or trading solicitation.</p>
+    </footer>
+  </body>
+</html>
