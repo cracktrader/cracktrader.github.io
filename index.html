@@ -23,6 +23,7 @@
         <span>Cracktrader <em>Engineering</em></span>
       </a>
       <nav aria-label="Primary navigation">
+        <a href="#metrics">Metrics</a>
         <a href="#architecture">Architecture</a>
         <a href="#evidence">Evidence</a>
         <a href="#contact">Contact</a>
@@ -56,16 +57,62 @@
           </aside>
         </div>
 
-        <div class="runtime-graphic" aria-label="Cracktrader runtime flow from market inputs through strategy, risk, execution and reports">
-          <div class="flow-inputs"><span>Feeds</span><span>Reference data</span></div>
-          <span class="flow-line"></span>
-          <div class="flow-box core">Shared state<br><small>immutable snapshot</small></div>
-          <span class="flow-line"></span>
-          <div class="flow-box strategy">Strategy views<br><small>attributed intents</small></div>
-          <span class="flow-line"></span>
-          <div class="flow-split"><span>Risk &amp; inventory</span><span>Routes &amp; adapters</span></div>
-          <span class="flow-line"></span>
-          <div class="flow-box reports">Execution reports · post-trade · control plane</div>
+        <figure class="hero-visual">
+          <img src="assets/hero-runtime-v1.webp" width="1600" height="800" alt="Abstract event streams passing through structured runtime layers and emerging as routed execution paths">
+          <figcaption>
+            <span><i></i> Runtime model</span>
+            <strong>Events → state → decisions → execution</strong>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="metrics section" id="metrics">
+        <div class="metrics-heading">
+          <div>
+            <p class="eyebrow">Measured engineering surface</p>
+            <h2>Evidence, not dashboard theatre.</h2>
+          </div>
+          <p>Repository counts come from the current private codebase. Performance figures are explicitly scoped to their benchmark rather than presented as trading results.</p>
+        </div>
+
+        <div class="instrument-panel">
+          <article class="throughput-readout">
+            <div class="readout-topline">
+              <span>Feed aggregation throughput</span>
+              <span class="status"><i></i> Committed baseline</span>
+            </div>
+            <div class="readout-value"><strong>642k</strong><span>ticks / sec</span></div>
+            <svg class="signal-trace" viewBox="0 0 600 120" aria-hidden="true">
+              <path class="trace-grid" d="M0 20H600M0 60H600M0 100H600M100 0V120M200 0V120M300 0V120M400 0V120M500 0V120"/>
+              <path class="trace-glow" d="M0 92L36 84L68 88L105 68L142 73L180 46L216 62L255 55L294 31L330 45L367 38L405 51L444 25L481 35L520 20L558 29L600 12"/>
+              <path class="trace-line" d="M0 92L36 84L68 88L105 68L142 73L180 46L216 62L255 55L294 31L330 45L367 38L405 51L444 25L481 35L520 20L558 29L600 12"/>
+            </svg>
+            <dl class="benchmark-detail">
+              <div><dt>Workload</dt><dd>50,000 synthetic ticks</dd></div>
+              <div><dt>Elapsed</dt><dd>77.9 ms</dd></div>
+              <div><dt>Output</dt><dd>4,999 candles</dd></div>
+              <div><dt>Snapshot</dt><dd>March 2026</dd></div>
+            </dl>
+            <p class="metric-caveat">Feed parsing and aggregation benchmark—not exchange latency or investment performance.</p>
+          </article>
+
+          <article class="verification-readout">
+            <div class="readout-topline">
+              <span>Verification surface</span>
+              <span class="snapshot-label">Snapshot · June 2026</span>
+            </div>
+            <table>
+              <thead><tr><th>Measure</th><th>Count</th><th>Signal</th></tr></thead>
+              <tbody>
+                <tr><td>Named test functions</td><td>1,706</td><td><span class="bar" style="--fill: 100%"></span></td></tr>
+                <tr><td>Python test files</td><td>426</td><td><span class="bar" style="--fill: 81%"></span></td></tr>
+                <tr><td>Contract-test modules</td><td>47</td><td><span class="bar" style="--fill: 52%"></span></td></tr>
+                <tr><td>Execution modes</td><td>4</td><td><span class="mode-dots" aria-label="Four modes"><i></i><i></i><i></i><i></i></span></td></tr>
+              </tbody>
+            </table>
+            <div class="mode-key"><span>Backtest</span><span>Paper</span><span>Sandbox</span><span>Live</span></div>
+            <p class="metric-caveat">Counts are generated from the repository tree; bars use a logarithmic scale and do not represent coverage percentage.</p>
+          </article>
         </div>
       </section>
 
