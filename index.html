@@ -3,311 +3,294 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CrackTrader — Private runtime infrastructure</title>
-    <meta name="description" content="CrackTrader is a private, production-grade runtime for quantitative research, simulation and execution across backtest, paper, sandbox and live environments.">
-    <meta name="theme-color" content="#101715">
+    <title>CrackTrader — One contract from backtest to live</title>
+    <meta name="description" content="CrackTrader is a private, production-grade runtime with one strategy contract across backtest, paper, sandbox and live execution.">
+    <meta name="theme-color" content="#0b0f0d">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CrackTrader — Private runtime infrastructure">
-    <meta property="og:description" content="A private, production-grade runtime for quantitative research, simulation and execution.">
+    <meta property="og:title" content="CrackTrader — One contract from backtest to live">
+    <meta property="og:description" content="Private runtime infrastructure for quantitative research and execution.">
     <meta property="og:url" content="https://cracktrader.github.io/">
     <link rel="canonical" href="https://cracktrader.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="CrackTrader, home">
-        <span class="brand-mark" aria-hidden="true">CT</span>
-        <span>CrackTrader <em>Private runtime infrastructure</em></span>
+    <header class="site-nav">
+      <a class="nav-logo" href="#top" aria-label="CrackTrader, home">
+        <span class="nav-logo-mark" aria-hidden="true">CT</span>
+        <span>CrackTrader</span>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="#product">Product</a>
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#architecture">Architecture</a>
         <a href="#modes">Modes</a>
         <a href="#replay">Replay</a>
-        <a href="#venues">Venues</a>
-        <a href="#research">Research</a>
         <a href="#evidence">Evidence</a>
-        <a href="#access">Access</a>
+        <a href="https://cracktrader.github.io/docs/">Docs <span aria-hidden="true">↗</span></a>
       </nav>
+      <a class="nav-cta" href="#access">Request access</a>
     </header>
 
     <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow status-line"><span></span> Internal production system · selective access by agreement</p>
-          <h1>Private runtime infrastructure for quantitative research and execution.</h1>
-          <p class="hero-intro">
-            One strategy contract across backtest, paper, sandbox and live environments,
-            with deterministic replay, attributed execution, central risk, venue adapters
-            and reproducible research workflows.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="#access">Request technical discussion</a>
-            <a class="button secondary" href="#product">Explore the product</a>
-            <a class="button secondary" href="https://cracktrader.github.io/docs/">Technical documentation <span aria-hidden="true">↗</span></a>
-          </div>
-
-          <aside class="availability" aria-label="Project availability">
-            <strong>Private deployment · serious enquiries only</strong>
-            <p>
-              CrackTrader is a private, production-grade runtime used internally rather
-              than offered as a public SaaS product. Selected licensing, collaboration,
-              deployment or technical due-diligence discussions may be considered.
-              Strategy logic, live results, credentials and proprietary datasets are not published.
-            </p>
-          </aside>
-        </div>
-
-        <figure class="hero-visual">
-          <img src="assets/hero-runtime-v1.webp" width="1600" height="800" alt="Abstract event streams passing through structured runtime layers and emerging as routed execution paths">
-          <figcaption>
-            <span><i></i> Runtime model</span>
-            <strong>Events → state → decisions → execution</strong>
-          </figcaption>
-        </figure>
-      </section>
-
-      <section class="metrics section" id="metrics">
-        <div class="metrics-heading">
-          <div>
-            <p class="eyebrow">Measured engineering surface</p>
-            <h2>Measured where the machinery matters.</h2>
-          </div>
-          <p>Repository counts come from the current private codebase. Performance figures are explicitly scoped to their benchmark rather than presented as trading results.</p>
-        </div>
-
-        <div class="instrument-panel">
-          <article class="throughput-readout">
-            <div class="readout-topline">
-              <span>Feed aggregation throughput</span>
-              <span class="status"><i></i> Committed baseline</span>
-            </div>
-            <div class="readout-value"><strong>642k</strong><span>ticks / sec</span></div>
-            <svg class="signal-trace" viewBox="0 0 600 120" aria-hidden="true">
-              <path class="trace-grid" d="M0 20H600M0 60H600M0 100H600M100 0V120M200 0V120M300 0V120M400 0V120M500 0V120"/>
-              <path class="trace-glow" d="M0 92L36 84L68 88L105 68L142 73L180 46L216 62L255 55L294 31L330 45L367 38L405 51L444 25L481 35L520 20L558 29L600 12"/>
-              <path class="trace-line" d="M0 92L36 84L68 88L105 68L142 73L180 46L216 62L255 55L294 31L330 45L367 38L405 51L444 25L481 35L520 20L558 29L600 12"/>
-            </svg>
-            <dl class="benchmark-detail">
-              <div><dt>Workload</dt><dd>50,000 synthetic ticks</dd></div>
-              <div><dt>Elapsed</dt><dd>77.9 ms</dd></div>
-              <div><dt>Output</dt><dd>4,999 candles</dd></div>
-              <div><dt>Snapshot</dt><dd>March 2026</dd></div>
-            </dl>
-            <p class="metric-caveat">Feed parsing and aggregation benchmark—not exchange latency or investment performance.</p>
-          </article>
-
-          <article class="verification-readout">
-            <div class="readout-topline">
-              <span>Verification surface</span>
-              <span class="snapshot-label">Snapshot · June 2026</span>
-            </div>
-            <table>
-              <thead><tr><th>Measure</th><th>Count</th><th>Signal</th></tr></thead>
-              <tbody>
-                <tr><td>Named test functions</td><td>1,706</td><td><span class="bar" style="--fill: 100%"></span></td></tr>
-                <tr><td>Python test files</td><td>426</td><td><span class="bar" style="--fill: 81%"></span></td></tr>
-                <tr><td>Contract-test modules</td><td>47</td><td><span class="bar" style="--fill: 52%"></span></td></tr>
-                <tr><td>Execution modes</td><td>4</td><td><span class="mode-dots" aria-label="Four modes"><i></i><i></i><i></i><i></i></span></td></tr>
-              </tbody>
-            </table>
-            <div class="mode-key"><span>Backtest</span><span>Paper</span><span>Sandbox</span><span>Live</span></div>
-            <p class="metric-caveat">Counts are generated from the repository tree; bars use a logarithmic scale and do not represent coverage percentage.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="architecture-map section" id="architecture">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Architecture</p>
-            <h2>One attributable path from market event to inventory.</h2>
-          </div>
-          <p>The runtime keeps decision provenance intact while separating shared state, strategy logic, controls and venue-specific execution.</p>
-        </div>
-        <ol class="runtime-rail" aria-label="CrackTrader runtime decision path">
-          <li><span>01</span><strong>Market event</strong><small>feeds and channels</small></li>
-          <li><span>02</span><strong>Snapshot</strong><small>shared immutable state</small></li>
-          <li><span>03</span><strong>Strategy intent</strong><small>identity preserved</small></li>
-          <li><span>04</span><strong>Risk decision</strong><small>inventory and limits</small></li>
-          <li><span>05</span><strong>Execution report</strong><small>route-aware adapter</small></li>
-          <li><span>06</span><strong>Inventory update</strong><small>post-trade state</small></li>
-        </ol>
-      </section>
-
-      <section class="principles section" id="product">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Product</p>
-            <h2>One runtime model, with mode differences kept at the edges.</h2>
-          </div>
-          <p>
-            Strategies target stable contracts. The runtime owns shared state,
-            attribution, risk and inventory; execution adapters handle what must differ
-            between deterministic simulation and real venues.
-          </p>
-        </div>
-
-        <div class="principle-grid">
-          <article>
-            <span>01</span>
-            <h3>Session-owned state</h3>
-            <p>One session coordinates reference data, market state, strategies, routes, inventory, risk and control-plane services.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Shared snapshots</h3>
-            <p>Market inputs produce one immutable snapshot per step, then filtered strategy views preserve isolation without duplicating state.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Attributed execution</h3>
-            <p>Strategy, execution and route identities travel with intents, reports and diagnostics instead of disappearing inside broker code.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>Explicit runtime edges</h3>
-            <p>Risk decisions, execution adapters, post-trade sinks and kill-switch controls remain first-class boundaries rather than strategy side effects.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="modes section" id="modes" aria-labelledby="modes-title">
-        <div class="section-heading compact">
-          <div>
-            <p class="eyebrow">Execution modes</p>
-            <h2 id="modes-title">Stable contracts across four operating environments.</h2>
-          </div>
-        </div>
-        <div class="mode-grid">
-          <article><h3>Backtest</h3><p>Historical replay with a strong deterministic expectation for research, regression testing and reproducibility.</p></article>
-          <article><h3>Paper</h3><p>Live or replayed inputs with simulated execution for strategy shakeout without venue-side orders.</p></article>
-          <article><h3>Sandbox</h3><p>Real broker adapters against testnet or venue sandboxes for integration and pre-live validation.</p></article>
-          <article><h3>Live</h3><p>Real market input and venue execution, with operational safeguards and environment-dependent timing.</p></article>
-        </div>
-        <p class="mode-note">The strategy-facing contract remains stable; fill formation, clocks, venue capability and safety defaults are allowed to differ explicitly.</p>
-      </section>
-
-      <section class="replay section" id="replay">
-        <div class="replay-copy">
-          <p class="eyebrow">Deterministic replay</p>
-          <h2>Reproduce the decision path, not merely the final number.</h2>
-          <p>Runtime history, snapshots, attribution, order transitions and versioned checkpoints support replay, recovery and diagnosis without collapsing everything into an opaque backtest result.</p>
-          <a class="text-link" href="https://cracktrader.github.io/docs/testing/runtime_guarantees/">Read the runtime guarantees <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="replay-proof" aria-label="Replay verification surfaces">
-          <div><span>Event order</span><strong>Verified sequence</strong></div>
-          <div><span>Snapshot state</span><strong>Coherent per step</strong></div>
-          <div><span>Attribution</span><strong>Strategy · execution · route</strong></div>
-          <div><span>Recovery</span><strong>Checkpoint + replay</strong></div>
-        </div>
-      </section>
-
-      <section class="venues section" id="venues">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Venue boundaries</p>
-            <h2>Different markets. Consistent runtime contracts.</h2>
-          </div>
-          <p>Venue details stay behind feed, broker and execution-adapter boundaries, while reference data normalises instruments and constraints for the rest of the runtime.</p>
-        </div>
-        <div class="venue-grid">
-          <article><span>CEX</span><h3>Centralised exchanges</h3><p>CCXT-backed market data and execution, with REST, streaming and historical ingestion paths.</p></article>
-          <article><span>Prediction</span><h3>Event markets</h3><p>Dedicated Polymarket and Kalshi sessions, feeds, stores, brokers and simulation surfaces.</p></article>
-          <article><span>On-chain</span><h3>Decentralised venues</h3><p>Uniswap and PancakeSwap connector architecture with quoting, slippage, token and transaction boundaries.</p></article>
-        </div>
-        <p class="venue-note">Derived OHLCV can be built from trades, top-of-book observations and pool-state snapshots for a consistent research surface.</p>
-      </section>
-
-      <section class="research section" id="research">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Research discipline</p>
-            <h2>Built to test ideas without quietly fooling itself.</h2>
-          </div>
-          <p>Research workflows around the runtime preserve the request, strategy, dataset and configuration identity behind each result.</p>
-        </div>
-        <div class="research-grid">
-          <article><strong>Leakage-aware validation</strong><p>Walk-forward windows, purged cross-validation and embargo periods for time-series evaluation.</p></article>
-          <article><strong>Reproducible runs</strong><p>Deterministic request, strategy, dataset and configuration hashes with versioned metadata.</p></article>
-          <article><strong>Inspectible artefacts</strong><p>Reports, trades, equity curves, stress reruns and failure capsules stored per evaluation.</p></article>
-          <article><strong>Comparable evidence</strong><p>Queryable run registry, report comparison and leaderboard tooling without publishing proprietary results.</p></article>
-        </div>
-      </section>
-
-      <section class="evidence section" id="evidence">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Private performance · public infrastructure</p>
-            <h2>The edge stays private. The engineering does not hide behind it.</h2>
-          </div>
-          <p>
-            Trading results, strategy logic and live data are proprietary. Public
-            evidence focuses on the runtime surfaces that can be described without
-            exposing edge: execution modes, replay, risk boundaries, venue adapters,
-            research validation, reporting and test coverage.
-          </p>
-        </div>
-
-        <div class="evidence-grid">
-          <article>
-            <strong>Broad test surface</strong>
-            <p>More than 400 Python files in the test tree, spanning unit, contract, integration, end-to-end, performance and parity concerns.</p>
-          </article>
-          <article>
-            <strong>Deterministic contracts</strong>
-            <p>Explicit timestamp, snapshot, attribution and order-lifecycle guarantees protect replay and regression behaviour.</p>
-          </article>
-          <article>
-            <strong>Mode divergence ledger</strong>
-            <p>Intentional differences between backtest, paper, sandbox and live behaviour are recorded instead of silently leaking across modes.</p>
-          </article>
-          <article>
-            <strong>Performance tooling</strong>
-            <p>Benchmark and profiling infrastructure covers data processing, ordering, memory and runtime paths, with synthetic results identified as such.</p>
-          </article>
-        </div>
-
-        <div class="document-links">
-          <a href="https://cracktrader.github.io/docs/architecture/runtime_map/">
-            <span>Runtime map</span><small>Ownership and data flow</small>
-          </a>
-          <a href="https://cracktrader.github.io/docs/architecture/mode_matrix/">
-            <span>Mode matrix</span><small>Backtest through live</small>
-          </a>
-          <a href="https://cracktrader.github.io/docs/mode_divergence_ledger/">
-            <span>Divergence ledger</span><small>Intentional runtime differences</small>
-          </a>
-          <a href="https://cracktrader.github.io/docs/performance/benchmarking/">
-            <span>Benchmarking</span><small>Method and generated artefacts</small>
-          </a>
-        </div>
-      </section>
-
-      <section class="access section" id="access">
-        <p class="eyebrow">Selective access</p>
-        <h2>Interested in CrackTrader?</h2>
-        <p>
-          CrackTrader is an internally used product, not a public download, hosted
-          trading service, signals product or managed-investment offering. Access to
-          the software, architecture, private demonstrations or deployment support may
-          be considered case-by-case for serious technical, commercial or research enquiries.
+      <section class="hero page-width" id="top">
+        <p class="eyebrow rule-label">Private runtime infrastructure</p>
+        <h1>One strategy contract.<br><strong>Four operating environments.</strong></h1>
+        <p class="hero-copy">
+          CrackTrader is a production-grade quantitative runtime—from backtest through
+          live—with deterministic replay, session-owned state, central risk and
+          route-aware execution. Used internally. Not a SaaS.
         </p>
-        <p class="access-note">Potential discussions may include licensing, collaboration, deployment support or deeper technical review. Strategies, performance data and proprietary datasets remain private unless separately agreed.</p>
         <div class="actions">
-          <a class="button light" href="mailto:lachlanjbridges@gmail.com?subject=CrackTrader%20technical%20discussion">Request technical discussion</a>
-          <a class="button outline-light" href="https://thetailorretailored.github.io/">Developer portfolio <span aria-hidden="true">↗</span></a>
-          <a class="button outline-light" href="https://cracktrader.github.io/docs/">Technical docs <span aria-hidden="true">↗</span></a>
+          <a class="button primary" href="#access">Request technical discussion</a>
+          <a class="button ghost" href="#architecture">Explore architecture <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://cracktrader.github.io/docs/">Technical docs <span aria-hidden="true">↗</span></a>
         </div>
+        <p class="hero-note">Internal production system · selective access by agreement · no analytics or solicitation</p>
+      </section>
+
+      <section class="metrics" aria-label="Engineering metrics">
+        <div class="metrics-inner">
+          <article>
+            <p>Test functions</p>
+            <strong>1,706</strong>
+            <small>426 Python test files</small>
+          </article>
+          <article>
+            <p>Contract tests</p>
+            <strong>47 <span>modules</span></strong>
+            <small>Runtime and API boundaries</small>
+          </article>
+          <article>
+            <p>Feed throughput</p>
+            <strong>642<span>k/s</span></strong>
+            <small>Synthetic aggregation benchmark</small>
+          </article>
+          <article>
+            <p>Operating modes</p>
+            <strong>4</strong>
+            <small>One strategy contract</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section page-width" id="modes">
+        <header class="section-header">
+          <p class="eyebrow">Execution modes</p>
+          <h2>Mode differences kept <strong>at the edges.</strong></h2>
+          <p>Strategy logic targets a stable contract. The runtime owns shared state, attribution, risk and inventory; execution adapters absorb what must differ.</p>
+        </header>
+
+        <div class="mode-grid">
+          <article>
+            <small>mode 01</small>
+            <span class="mode-tag backtest">Backtest</span>
+            <h3>Historical replay</h3>
+            <p>Strong deterministic expectation for research, regression testing and reproducibility—not a black-box result.</p>
+          </article>
+          <article>
+            <small>mode 02</small>
+            <span class="mode-tag paper">Paper</span>
+            <h3>Simulated execution</h3>
+            <p>Live or replayed inputs with simulated fills. Strategy shakeout without venue-side orders.</p>
+          </article>
+          <article>
+            <small>mode 03</small>
+            <span class="mode-tag sandbox">Sandbox</span>
+            <h3>Real adapters, test venues</h3>
+            <p>Broker adapters against testnets or venue sandboxes for integration and pre-live validation.</p>
+          </article>
+          <article>
+            <small>mode 04</small>
+            <span class="mode-tag live">Live</span>
+            <h3>Full execution</h3>
+            <p>Real market input and venue execution with operational safeguards and environment-dependent timing.</p>
+          </article>
+          <p class="contract-banner"><span aria-hidden="true">⟶</span> Strategy-facing contracts stay stable across all four modes. Fill formation, clocks, venue capability and safety defaults differ explicitly and are recorded.</p>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="section page-width" id="architecture">
+        <header class="section-header">
+          <p class="eyebrow">Architecture</p>
+          <h2>One attributable path from <strong>event to inventory.</strong></h2>
+          <p>Decision provenance stays intact through the full path. Strategy, execution and route identity travel with every intent and report.</p>
+        </header>
+
+        <div class="pipeline-scroll" tabindex="0" aria-label="Scrollable runtime pipeline">
+          <ol class="pipeline">
+            <li><span>01</span><strong>Market event</strong><small>feeds · channels</small></li>
+            <li class="pipe-arrow" aria-hidden="true">→</li>
+            <li><span>02</span><strong>Snapshot</strong><small>immutable · shared</small></li>
+            <li class="pipe-arrow" aria-hidden="true">→</li>
+            <li><span>03</span><strong>Strategy intent</strong><small>identity preserved</small></li>
+            <li class="pipe-arrow" aria-hidden="true">→</li>
+            <li><span>04</span><strong>Risk decision</strong><small>inventory · limits</small></li>
+            <li class="pipe-arrow" aria-hidden="true">→</li>
+            <li><span>05</span><strong>Execution</strong><small>route-aware adapter</small></li>
+            <li class="pipe-arrow" aria-hidden="true">→</li>
+            <li><span>06</span><strong>Inventory</strong><small>post-trade state</small></li>
+          </ol>
+        </div>
+
+        <div class="property-grid">
+          <article><span>[session]</span><h3>Session-owned construction</h3><p>One session coordinates reference data, market state, strategies, routes, inventory, risk and control-plane services.</p></article>
+          <article><span>[snapshot]</span><h3>Immutable per-step snapshots</h3><p>Market inputs produce one shared snapshot per step. Strategy-specific views filter it without duplicating state.</p></article>
+          <article><span>[attribution]</span><h3>Full execution attribution</h3><p>Strategy, execution and route identities remain attached to intents, reports and diagnostics.</p></article>
+          <article><span>[boundary]</span><h3>Explicit runtime edges</h3><p>Risk, execution adapters, post-trade sinks and kill switches are first-class boundaries—not strategy side effects.</p></article>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="section page-width" id="replay">
+        <header class="section-header">
+          <p class="eyebrow">Deterministic replay</p>
+          <h2>Reproduce the <strong>decision path,</strong> not just the final number.</h2>
+          <p>Runtime history, snapshots, attribution, order transitions and versioned checkpoints support replay, recovery and diagnosis end to end.</p>
+        </header>
+
+        <div class="replay-block">
+          <p class="terminal-label">// replay guarantees</p>
+          <dl>
+            <div><dt>Event order</dt><dd>Verified sequence</dd></div>
+            <div><dt>Snapshot state</dt><dd>Coherent per step</dd></div>
+            <div><dt>Attribution</dt><dd>Strategy · route · execution</dd></div>
+            <div><dt>Recovery</dt><dd>Checkpoint + replay</dd></div>
+          </dl>
+        </div>
+        <a class="inline-link" href="https://cracktrader.github.io/docs/testing/runtime_guarantees/">Read the runtime guarantees <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <hr>
+
+      <section class="section page-width" id="divergence">
+        <header class="section-header">
+          <p class="eyebrow">Divergence ledger</p>
+          <h2>Differences are <strong>intentional and inspectable.</strong></h2>
+          <p>One architecture does not mean pretending a simulator and a live venue behave identically. The differences are isolated, named and documented.</p>
+        </header>
+        <div class="ledger-wrap">
+          <table class="ledger">
+            <thead><tr><th>Surface</th><th>Backtest / paper</th><th>Sandbox / live</th></tr></thead>
+            <tbody>
+              <tr><th>Clock source</th><td>Replay clock or local scheduler</td><td>Venue and network timing</td></tr>
+              <tr><th>Fill formation</th><td>Explicit simulation and realism policy</td><td>Venue acknowledgements and fills</td></tr>
+              <tr><th>Determinism</th><td>Strong where inputs are hermetic</td><td>Environment-dependent execution</td></tr>
+              <tr><th>Safety defaults</th><td>Reproducibility and test controls</td><td>Operational guards and kill switches</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <a class="inline-link" href="https://cracktrader.github.io/docs/mode_divergence_ledger/">Open the full divergence ledger <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <hr>
+
+      <section class="section page-width" id="venues">
+        <header class="section-header">
+          <p class="eyebrow">Venue support</p>
+          <h2>Different markets, <strong>consistent contracts.</strong></h2>
+          <p>Venue details stay behind feed, broker and execution-adapter boundaries. Reference data normalises instruments and constraints for the rest of the runtime.</p>
+        </header>
+        <div class="venue-grid">
+          <article>
+            <small>CEX</small><h3>Centralised exchanges</h3>
+            <p>CCXT-backed market data and execution with REST, streaming and historical ingestion paths.</p>
+            <ul><li>REST</li><li>streaming</li><li>historical</li></ul>
+          </article>
+          <article>
+            <small>Prediction markets</small><h3>Event venues</h3>
+            <p>Dedicated Polymarket and Kalshi sessions, feeds, stores, brokers and simulation surfaces.</p>
+            <ul><li>Polymarket</li><li>Kalshi</li><li>simulation</li></ul>
+          </article>
+          <article>
+            <small>On-chain</small><h3>Decentralised venues</h3>
+            <p>Uniswap and PancakeSwap connectors with quoting, slippage, token and transaction boundaries.</p>
+            <ul><li>Uniswap</li><li>PancakeSwap</li><li>derived OHLCV</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="section page-width" id="research">
+        <header class="section-header">
+          <p class="eyebrow">Research workflow</p>
+          <h2>Built to test ideas without <strong>quietly fooling itself.</strong></h2>
+          <p>The research stack is opinionated about leakage, provenance and comparable artefacts—not merely invoking a backtest function.</p>
+        </header>
+
+        <div class="workflow-scroll" tabindex="0" aria-label="Scrollable research workflow">
+          <ol class="workflow">
+            <li><span>01</span><strong>Request hash</strong><small>strategy · config · seed</small></li>
+            <li aria-hidden="true">→</li>
+            <li><span>02</span><strong>Dataset identity</strong><small>versioned input</small></li>
+            <li aria-hidden="true">→</li>
+            <li><span>03</span><strong>Validation</strong><small>walk-forward · purge · embargo</small></li>
+            <li aria-hidden="true">→</li>
+            <li><span>04</span><strong>Evaluation</strong><small>runtime + stress reruns</small></li>
+            <li aria-hidden="true">→</li>
+            <li><span>05</span><strong>Artefacts</strong><small>reports · trades · registry</small></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section page-width evidence-section" id="evidence">
+        <header class="section-header">
+          <p class="eyebrow">Research discipline &amp; evidence</p>
+          <h2>Public machinery. <strong>Private edge.</strong></h2>
+          <p>Strategy logic, live results and proprietary datasets stay private. Runtime guarantees, scoped benchmarks and verification surfaces remain inspectable.</p>
+        </header>
+        <div class="evidence-grid">
+          <article><strong>1,706</strong><h3>Named test functions</h3><p>Unit, contract, integration, end-to-end, performance and mode-parity concerns across 426 Python test files.</p></article>
+          <article><strong>47</strong><h3>Contract-test modules</h3><p>Runtime and public-API boundaries tested explicitly rather than left as implicit conventions.</p></article>
+          <article><strong>4</strong><h3>Modes on one contract</h3><p>Backtest, paper, sandbox and live retain one strategy-facing model while divergences stay explicit.</p></article>
+          <article><strong>642k</strong><h3>Ticks/sec feed throughput</h3><p>50,000 synthetic ticks processed in 77.9 ms. Feed parsing and OHLCV aggregation—not exchange round-trip latency.</p></article>
+        </div>
+        <div class="document-links">
+          <a href="https://cracktrader.github.io/docs/architecture/runtime_map/">Runtime map <span aria-hidden="true">↗</span></a>
+          <a href="https://cracktrader.github.io/docs/architecture/mode_matrix/">Mode matrix <span aria-hidden="true">↗</span></a>
+          <a href="https://cracktrader.github.io/docs/performance/benchmarking/">Benchmark method <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="not-section" aria-labelledby="not-title">
+        <div class="page-width">
+          <p class="eyebrow">Clear boundaries</p>
+          <h2 id="not-title">What this is not.</h2>
+          <ul>
+            <li>Not a public SaaS product</li>
+            <li>Not a signals or copy-trading service</li>
+            <li>Not an open-source trading bot</li>
+            <li>Not a managed-investment offering</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="access" id="access">
+        <h2>Serious enquiries welcome.</h2>
+        <p>CrackTrader is used internally. Licensing, collaboration, deployment support and technical due-diligence discussions may be considered case-by-case.</p>
+        <div class="actions centred">
+          <a class="button primary" href="mailto:lachlanjbridges@gmail.com?subject=CrackTrader%20technical%20discussion">Request technical discussion</a>
+          <a class="button ghost" href="https://cracktrader.github.io/docs/">Technical docs <span aria-hidden="true">↗</span></a>
+          <a class="button ghost" href="https://thetailorretailored.github.io/">Developer portfolio <span aria-hidden="true">↗</span></a>
+        </div>
+        <small>Strategy logic, live results and proprietary datasets remain private unless separately agreed.</small>
       </section>
     </main>
 
     <footer>
-      <p>CrackTrader · Private runtime infrastructure · Selective access</p>
-      <p>No analytics, trackers, signals or trading solicitation.</p>
+      <p>CrackTrader · Private runtime infrastructure · © 2026</p>
+      <nav aria-label="Footer navigation">
+        <a href="https://cracktrader.github.io/docs/">Docs <span aria-hidden="true">↗</span></a>
+        <a href="https://cracktrader.github.io/docs/architecture/runtime_map/">Runtime map <span aria-hidden="true">↗</span></a>
+        <a href="https://cracktrader.github.io/docs/architecture/mode_matrix/">Mode matrix <span aria-hidden="true">↗</span></a>
+      </nav>
     </footer>
   </body>
 </html>

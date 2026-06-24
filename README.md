@@ -1,11 +1,12 @@
-# Cracktrader Engineering
+# CrackTrader
 
-The source for <https://cracktrader.github.io/>: a public engineering overview
-of Cracktrader's runtime architecture, operating modes and evidence boundaries.
+Source for <https://cracktrader.github.io/>, the public front door for a private,
+internally used runtime for quantitative research, simulation and execution.
 
-Cracktrader itself is private software for personal quantitative research and
-trading. This repository contains only the static public site. It does not
-contain strategies, credentials, live data or private implementation code.
+The core product is not contained in this repository. This static site documents
+selected architecture, runtime guarantees, operating modes and scoped engineering
+evidence without publishing strategy logic, credentials, live data, trading results
+or proprietary datasets.
 
 Detailed technical documentation remains at
 <https://cracktrader.github.io/docs/>.
